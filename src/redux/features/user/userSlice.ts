@@ -24,10 +24,13 @@ export const userSlice = createSlice({
       const user = createUser(action.payload);
       state.users.push(user);
     },
+    removeUser: (state, action: PayloadAction<string>) => {
+      state.users = state.users.filter((user) => user.id !== action.payload);
+    },
   },
 });
 export const selactUser = (state: RootState) => {
   return state.assignUser.users;
 };
-export const { addUser } = userSlice.actions;
+export const { addUser, removeUser } = userSlice.actions;
 export default userSlice.reducer;

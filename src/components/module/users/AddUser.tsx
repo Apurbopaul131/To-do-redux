@@ -31,6 +31,7 @@ const AddUser = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     dispatch(addUser(data as TDraftUser));
     setOpen(false);
+    form.reset();
   };
   return (
     <Dialog open={open} onOpenChange={setOpen}>
